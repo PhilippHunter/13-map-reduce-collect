@@ -59,7 +59,7 @@ class TrumpTweetStatsTest {
         TweetSource tweetSource = TweetSource.valueOf(tweetSourceName);
 
         Stream<Tweet> tweetStream = tweetStreamFactory.getStreamGenerator(tweetSource).getTweetStream();
-        Map<String, Integer> wordCount = TrumpTweetStats.calculateWordCount(tweetStream, stopWords);
+        Map<String, Long> wordCount = TrumpTweetStats.calculateWordCount(tweetStream, stopWords);
         assertNotEquals(0, wordCount.keySet().size());
         logger.info(PrintUtils.mapToString(wordCount));
     }
